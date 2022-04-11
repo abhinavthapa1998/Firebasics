@@ -30,6 +30,7 @@ const index = () => {
       <div className="inputcont">
       <input onChange={handleChange} type="text"/>
       <input onClick={handleSubmit} type="submit"/>
+      
       </div>
     </div>
   )

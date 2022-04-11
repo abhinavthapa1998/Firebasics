@@ -2,6 +2,7 @@ import React from 'react'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { firebaseApp } from "./config/firebase.config";
 import { useRouter } from 'next/router';
+
 const login = () => {
   const firebaseAuth = getAuth(firebaseApp);
   const provider = new GoogleAuthProvider;
