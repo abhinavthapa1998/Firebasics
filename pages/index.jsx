@@ -12,10 +12,14 @@ const index = () => {
      router.push("/login");
     }
   }, [])
+  let newName = '';
+  const handleChange = (e) =>{
+    newName = e.target.value;
+  }
   const handleSubmit = (e) =>{
     e.preventDefault();
     addDoc(colRef,{
-      userName: "Abhinav",
+      userName: newName,
     })
   }
   return (
@@ -24,7 +28,7 @@ const index = () => {
       <img src='https://cdn-icons-png.flaticon.com/512/6681/6681235.png'/>
       <h1>Dashboard</h1>
       <div className="inputcont">
-      <input type="text"/>
+      <input onChange={handleChange} type="text"/>
       <input onClick={handleSubmit} type="submit"/>
       </div>
     </div>
