@@ -36,9 +36,10 @@ const index = () => {
     deleteDoc(userDoc);
     getUsers();
   };
-
+  //READING DATA ON LOAD
   useEffect(() => {
     const accessToken = userAccessToken();
+    //CHECKING FOR AUTHENTICATION
     if (!accessToken) {
       router.push("/login");
     }
@@ -46,6 +47,7 @@ const index = () => {
   }, []);
 
   return (
+    // INPUT FIELDS
     <div className="userList">
       <TextField
         variant="outlined"
@@ -62,7 +64,7 @@ const index = () => {
           setNewAge(event.target.value);
         }}
       />
-
+      {/* DISPLAYING THE CURRENT DATA */}
       <Button variant="contained" onClick={createUser}>
         Create User
       </Button>
@@ -71,6 +73,7 @@ const index = () => {
           <div>
             <h1>Name: {user.name}</h1>
             <h1>Age: {user.age}</h1>
+            {/* INCREASE AGE BUTTON */}
             <Button
               variant="contained"
               onClick={() => {
@@ -79,6 +82,7 @@ const index = () => {
             >
               Increase Age
             </Button>
+            {/* DELETE BUTTON */}
             <Button
               variant="contained"
               onClick={() => {
