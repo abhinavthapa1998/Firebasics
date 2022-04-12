@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Box } from "@mui/material";
+import { Button, Box } from "@mui/material";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { firebaseApp } from "./config/firebase.config";
 import { useRouter } from "next/router";
@@ -8,6 +8,7 @@ const login = () => {
   const firebaseAuth = getAuth(firebaseApp);
   const provider = new GoogleAuthProvider();
   const router = useRouter();
+  //GOOGLE SIGN IN WITH STORING LOGIN LOCALLY
   const signIn = async () => {
     const { user } = await signInWithPopup(firebaseAuth, provider);
     const { refreshToken, providerData } = user;
