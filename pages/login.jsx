@@ -1,4 +1,5 @@
 import React from "react";
+import { Button, Container, Box } from "@mui/material";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { firebaseApp } from "./config/firebase.config";
 import { useRouter } from "next/router";
@@ -15,10 +16,12 @@ const login = () => {
     router.push("/");
   };
   return (
-    <>
+    <Box display="flex" alignItems="center" justifyContent="center">
       <h1>Log In Page</h1>
-      <button onClick={signIn}>Sign-in</button>
-    </>
+      <Button variant="contained" onClick={signIn}>
+        Sign-in
+      </Button>
+    </Box>
   );
 };
 
