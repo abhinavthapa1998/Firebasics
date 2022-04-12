@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import { Card } from "@mui/material";
 import { getDocs, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore";
 import { userAccessToken } from "./utils/fetchUserDetails";
 import { useRouter } from "next/router";
