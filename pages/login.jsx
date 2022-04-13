@@ -3,8 +3,10 @@ import { Button, Box } from "@mui/material";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { firebaseApp } from "./config/firebase.config";
 import { useRouter } from "next/router";
+import Navbar from "../components/Navbar";
+import Background from "../components/Background";
 
-const login = () => {
+function login() {
   const firebaseAuth = getAuth(firebaseApp);
   const provider = new GoogleAuthProvider();
   const router = useRouter();
@@ -17,13 +19,23 @@ const login = () => {
     router.push("/");
   };
   return (
-    <Box display="flex" alignItems="center" justifyContent="center">
-      <h1>Log In Page</h1>
-      <Button variant="contained" onClick={signIn}>
-        Sign-in
-      </Button>
-    </Box>
+    <>
+      <Navbar />
+      <Box
+        display="flex"
+        marginTop="10%"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <h1>Welcome!</h1>
+        <Button variant="contained" onClick={signIn}>
+          Sign-in
+        </Button>
+      </Box>
+      <Background />
+    </>
   );
-};
+}
 
 export default login;

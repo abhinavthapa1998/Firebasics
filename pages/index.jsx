@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import NavbarLogIn from "../components/NavbarLogIn";
+import Background from "../components/Background";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { getDocs, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore";
 import { userAccessToken } from "./utils/fetchUserDetails";
 import { useRouter } from "next/router";
 import { colRef, db } from "./config/firebase.config";
+import { Card } from "@mui/material";
 
 const index = () => {
   const router = useRouter();
@@ -47,53 +50,59 @@ const index = () => {
 
   return (
     // INPUT FIELDS
-    <div className="userList">
-      <TextField
-        variant="outlined"
-        label="Name"
-        onChange={(event) => {
-          setNewName(event.target.value);
-        }}
-      />
-      <TextField
-        variant="outlined"
-        type="number"
-        label="Age"
-        onChange={(event) => {
-          setNewAge(event.target.value);
-        }}
-      />
-      {/* DISPLAYING THE CURRENT DATA */}
-      <Button variant="contained" onClick={createUser}>
-        Create User
-      </Button>
-      {users.map((user) => {
-        return (
-          <div>
-            <h1>Name: {user.name}</h1>
-            <h1>Age: {user.age}</h1>
-            {/* INCREASE AGE BUTTON */}
-            <Button
-              variant="contained"
-              onClick={() => {
-                updateUser(user.id, user.age);
-              }}
-            >
-              Increase Age
-            </Button>
-            {/* DELETE BUTTON */}
-            <Button
-              variant="contained"
-              onClick={() => {
-                deleteUser(user.id);
-              }}
-            >
-              Delete User
-            </Button>
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <NavbarLogIn />
+
+      <div className="userList">
+        <TextField
+          variant="outlined"
+          label="Name"
+          onChange={(event) => {
+            setNewName(event.target.value);
+          }}
+        />
+        <TextField
+          variant="outlined"
+          type="number"
+          label="Age"
+          onChange={(event) => {
+            setNewAge(event.target.value);
+          }}
+        />
+        {/* DISPLAYING THE CURRENT DATA */}
+        <Button variant="contained" onClick={createUser}>
+          Create User
+        </Button>
+
+        {users.map((user) => {
+          return (
+            <Card variant="outlined">
+              <h1>Name: {user.name}</h1>
+              <h1>Age: {user.age}</h1>
+              {/* INCREASE AGE BUTTON */}
+              <Button
+                variant="contained"
+                onClick={() => {
+                  updateUser(user.id, user.age);
+                }}
+              >
+                Increase Age
+              </Button>
+              {/* DELETE BUTTON */}
+              <Button
+                variant="contained"
+                onClick={() => {
+                  deleteUser(user.id);
+                }}
+              >
+                Delete User
+              </Button>
+            </Card>
+          );
+        })}
+      </div>
+      <Background />
+    </>
   );
 };
 
