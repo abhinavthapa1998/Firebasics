@@ -1,4 +1,5 @@
 import * as React from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -14,7 +15,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import CodeIcon from "@mui/icons-material/Code";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Products", "Pricing", "Contact"];
 const settings = ["Logout"];
 
 const NavbarLogIn = () => {
@@ -94,10 +95,9 @@ const NavbarLogIn = () => {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                <Link href={page}>{page}</Link>
               </Button>
             ))}
           </Box>

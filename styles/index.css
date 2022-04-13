@@ -9,6 +9,7 @@ body {
       #ffffff 31px
     ),
     repeating-linear-gradient(#e0e2f755, #e0e2f7);
+  background-repeat: no-repeat;
 }
 
 .MuiCard-root {
@@ -28,6 +29,7 @@ body {
     rgba(148, 187, 233, 1) 100%
   );
 }
+
 button {
   margin: 0 5px 0 5px;
 }
