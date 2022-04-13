@@ -11,12 +11,17 @@ function index() {
   const provider = new GoogleAuthProvider();
   const router = useRouter();
   //GOOGLE SIGN IN WITH STORING LOGIN LOCALLY
+
   const signIn = async () => {
-    const { user } = await signInWithPopup(firebaseAuth, provider);
-    const { refreshToken, providerData } = user;
-    localStorage.setItem("user", JSON.stringify(providerData));
-    localStorage.setItem("accessToken", JSON.stringify(refreshToken));
-    router.push("/");
+    try {
+      const { user } = await signInWithPopup(firebaseAuth, provider);
+      const { refreshToken, providerData } = user;
+      localStorage.setItem("user", JSON.stringify(providerData));
+      localStorage.setItem("accessToken", JSON.stringify(refreshToken));
+      router.push("/");
+    } catch (error) {
+      return alert("Sign-In to access your data");
+    }
   };
   return (
     <>
