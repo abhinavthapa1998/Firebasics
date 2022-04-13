@@ -1,12 +1,12 @@
 import React from "react";
 import { Button, Box } from "@mui/material";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { firebaseApp } from "./config/firebase.config";
+import { firebaseApp } from "../config/firebase.config";
 import { useRouter } from "next/router";
-import Navbar from "../components/Navbar";
-import Background from "../components/Background";
+import Navbar from "../../components/Navbar";
+import Background from "../../components/Background";
 
-function login() {
+function index() {
   const firebaseAuth = getAuth(firebaseApp);
   const provider = new GoogleAuthProvider();
   const router = useRouter();
@@ -38,4 +38,4 @@ function login() {
   );
 }
 
-export default login;
+export default index;
