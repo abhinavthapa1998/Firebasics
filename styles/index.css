@@ -9,6 +9,7 @@ body {
       #ffffff 31px
     ),
     repeating-linear-gradient(#e0e2f755, #e0e2f7);
+  background-size: 100%;
   background-repeat: no-repeat;
 }
 

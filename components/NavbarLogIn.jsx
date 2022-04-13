@@ -104,7 +104,10 @@ const NavbarLogIn = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar
+                  alt="Remy Sharp"
+                  src="https://cdn-icons.flaticon.com/png/512/560/premium/560277.png?token=exp=1649843513~hmac=2dce3bbbbc329f856d987dfb7e0f603d"
+                />
               </IconButton>
             </Tooltip>
             <Menu
